@@ -1,0 +1,240 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Search | Cloudscraper</title>
+    <link rel="stylesheet" href="/static/cores/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <!--<script type="text/javascript" src="static/cores/fancybox/jquery.fancybox-1.3.4.pack.js" />-->
+    <meta http-equiv="imagetoolbar" content="no" />
+    <link rel="stylesheet" type="text/css" href="/static/cores/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/static/cores/css/search.css" media="all" />
+    <script type="text/javascript" src="/static/cores/search/search.nocache.js"></script>
+</head>
+<body>
+  
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0">
+    </iframe>
+    
+    <noscript>
+		<div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this
+			application to display correctly.</div>
+	</noscript>
+	
+	<div>
+		<div id="hdr">
+			<div id="hdr1">
+				<div id="hdr1-1">
+					<div id="hdr1-1-1">
+						<ol>
+                            {% if not username and not firstname %}
+							<li>
+								<a id="loginAnchor" href="/userpanel/?next=/search/">
+									<span style="font-size: 13px">Log in</span>
+								</a>
+							</li>
+                            {% else %}
+							<li>
+								<span style="padding: 0 9px; position: relative; top: 2px;">
+                                    {% if username %}
+                                        <span id="titleLbl" style="font-size: 13px">Welcome, {{ username }}</span>
+                                    {% else %}
+                                        <span id="fnameLbl" style="font-size: 13px">{{ firstname }}</span>
+                                        <span id="lnameLbl" style="font-size: 13px">{{ lastname }}</span>
+                                    {% endif %}
+								</span>
+							</li>
+							<li>
+								<a id="logoutAnchor" href="/userpanel/logout" style="font-size: 13px; position: relative; top: 2px;">Log out</a>
+							</li>
+                            {% endif %}
+							<li><a><span id="help">Help</span></a></li>
+						</ol>
+					</div>
+				</div>
+				<div id="hdr1-2">
+					<div id="hdr1-2-1">
+						<div id="hdr1-2-1-1">
+							<span></span>
+						</div>
+					</div>
+					<div id="hdr1-2-2">
+						<div id="hdr1-2-2-1">
+							<div>
+								<div id="fs1">
+									<div id="sbox">
+										<div id="sboxiw">
+											<div id="sboxi">
+												<table id="sboxt">
+													<tbody>
+														<tr>
+															<td>
+																<div id="siw">
+																	<input id="si" name="q" autocomplete="off" spellcheck="false" />
+																	<input id="uid" type="hidden" name="uid" value="{{ uid }}"/>
+																	<input id="hostname" type="hidden" name="hostname" value="{{ hostname }}" />
+																	<input id="port" type="hidden" name="port" value="{{ port }}" />
+																	<input id="mode" type="hidden" name="mode" value="{{ mode }}" />
+<!-- 																	<zul:textbox id="si" stubonly="true" name="q" sclass="si" value="@bind(vm.q)" focus="true" onOK="@command('search')" /> -->
+<!-- 																	<h:input id="si" name="q" autocomplete="off" spellcheck="false" value="@bind(vm.q)" onOK="@command('search')" /> -->
+																</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="sbtnw">
+								
+									<button id="sbtn" class="btn" type="button" style="margin-right: -6px">
+										<span></span>
+									</button>
+								
+									<button id="cbtn" class="btn" style="margin: 0">
+										<span></span>
+									</button>
+									<button id="sortbtn" class="btn-yellow" type="button" style="margin-left: 8px; margin-right: -6px">
+										<span></span>
+									</button>
+									<button id="scbtn" class="btn-yellow" style="margin: 0">
+										<span></span>
+									</button> 
+									
+								</div>
+								<!-- <div style="display: inline-block; font: 11px arial, sans-serif;">
+									<table style="border-spacing: 0">
+										<tr><td><a href="search_advanced.zul">Advanced search</a></td></tr>
+										<tr><td><a href="settings.zul">Settings</a></td></tr>
+									</table>
+									
+									
+								</div> -->
+								<input type="hidden" name="h1"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="hdr1-3">
+				</div>
+			</div>
+			<div id="hdr2"></div>
+			<div id="hdr3"></div>
+		</div>
+	</div>
+	<div id="main">
+		<div>
+			<div id="main1">
+				<div id="main1-1">
+					<div id="main1-1-1">
+						<div id="lbl">Search</div>
+						<div id="stsw">
+							<div>
+								<div id="sts"></div>
+							</div>
+						</div>
+						<ol id="ctls"></ol>
+					</div>
+				</div>
+				<div id="main1-2">
+					<div id="mrc">
+						<div id="lc">
+							<div id="lc1">
+							</div>
+							<div id="lc2">
+							</div>
+							<div id="lc3">
+							</div>
+							<div id="lc4">
+							</div>
+						</div>
+						<div id="cc">
+							<div id="cci">
+								<div id="top">
+								</div>
+								<div id="res">
+									<div id="resi">
+									</div>
+									<div id="rs">
+									</div>
+								</div>
+								<div id="bottom">
+								
+								</div>
+							</div>
+						</div>
+						<div id="rc">
+						</div>
+					</div>
+					<div id="ft">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table id="sg" class="hidden" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="sgd">
+					<table id="sgi" cellspacing="0" cellpadding="0">
+						<tbody>
+							<!-- <tr>
+								<td class="sgid">
+									<div style="padding: 0;">
+										<table class="sgii" cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+													<td class="sgiid">
+														<span>apache1.0.txt</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="sgid">
+									<div style="padding: 0;">
+										<table class="sgii" cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+													<td class="sgiid">
+														<span>apache1.1.txt</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="sgid">
+									<div style="padding: 0;">
+										<table class="sgii" cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+													<td class="sgiid">
+														<span>apache2.0.txt</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr> -->
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p id="help-gallery" style="display: none;">
+		<a rel="example_group" href="/static/cores/images/help-search.jpg" title=""><img id="help1-img" alt="" src="/static/cores/images/help-search.jpg" /></a>
+		<a rel="example_group" href="/static/cores/images/help-search2.jpg" title=""><img alt="" src="/static/cores/images/help-search2.jpg" /></a>
+	</p>
+</body>
+</html>

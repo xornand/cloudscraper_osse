@@ -1,0 +1,357 @@
+@CHARSET "UTF-8";
+
+.gray {
+	color: gray !important;
+}
+
+.validationFailedBorder {
+	border: 2px solid #ff0000 !important;
+}
+
+.gwt-TabLayoutPanel {
+	
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabs {
+	background: #E5E5E5;
+	padding-top: 6px;
+	padding-left: 5px;
+	border: 1px solid #DEDEDE;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelContentContainer {
+	border-color: #ccc;
+	border-style: solid;
+/* 	border-width: 0px 1px 1px; */
+	border-width: 0px;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelContent {
+	overflow: hidden;
+	padding: 6px;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab {
+	position: relative;
+	top: 1px;
+	margin-left: 4px;
+	padding: 4px 8px 4px 8px;
+	cursor: pointer;
+	cursor: hand;
+	color: white;
+	font-weight: normal;
+	text-align: center;
+	background: #8E8E8E;
+	-moz-border-radius: 3px 3px 0px 0px;
+	border-radius: 3px 3px 0px 0px;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected {
+	cursor: default;
+	background: white;
+	color: #333;
+	font-weight: bold;
+}
+
+.gwt-DialogBox {
+	z-index: 1001;
+	background: white;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	font-size: 13px;
+	padding: 0 0 6px;
+	white-space: nowrap;
+	-webkit-transition: opacity 0.218s;
+	transition: opacity 0.218s;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gwt-DialogBox .Caption {
+	border-bottom: 1px solid #CCC;
+	padding: 3px;
+}
+
+.gwt-DialogBox .dialogContent {
+	
+}
+
+.gwt-DialogBox .dialogMiddleCenter {
+	
+}
+
+.gwt-DialogBox .dialogBottomCenter {
+	
+}
+
+.gwt-DialogBox .dialogMiddleLeft {
+	
+}
+
+.gwt-DialogBox .dialogMiddleRight {
+	
+}
+
+.gwt-DialogBox .dialogTopLeftInner {
+	
+}
+
+.gwt-DialogBox .dialogTopRightInner {
+	
+}
+
+.gwt-DialogBox .dialogBottomLeftInner {
+	
+}
+
+.gwt-DialogBox .dialogBottomRightInner {
+	
+}
+
+.gwt-DialogBox .dialogTopLeft {
+	
+}
+
+.gwt-DialogBox .dialogTopRight {
+	
+}
+
+.gwt-DialogBox .dialogBottomLeft {
+	
+}
+
+.gwt-DialogBox .dialogBottomRight {
+	
+}
+
+* html .gwt-DialogBox .dialogTopLeftInner {
+	
+}
+
+* html .gwt-DialogBox .dialogTopRightInner {
+	
+}
+
+* html .gwt-DialogBox .dialogBottomLeftInner {
+	
+}
+
+* html .gwt-DialogBox .dialogBottomRightInner {
+	
+}
+
+.gwt-PopupPanelGlass {
+	background-color: #000;
+	opacity: 0.1;
+	filter: alpha(opacity = 10);
+	z-index: 1000;
+}
+
+.Caption {
+	width: 100%;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: arial,sans-serif;
+}
+
+.myDialogBox-Title {
+	margin-right: 3px;
+}
+
+.myDialogBox-CloseButton {
+	float: right;
+	width: 18px;
+	height: 18px;
+	font-size: x-small !important;
+	cursor: pointer;
+}
+
+.myDialogBox-Cursor {
+	cursor: default;
+}
+
+.myDialogBox-Contents {
+	width: 100%;
+	padding-top: 5px;
+}
+
+.myDialogBox-Col0 {
+	font-weight: bold;
+	width: 50%;
+}
+
+.gwt-DisclosurePanel {
+	width: 100%;
+}
+.gwt-DisclosurePanel-open {
+}
+.gwt-DisclosurePanel-closed {
+}
+.gwt-DisclosurePanel .header,
+.gwt-DisclosurePanel .header a,
+.gwt-DisclosurePanel .header td {
+	/*text-decoration: none;*/  /* Remove underline from header */ 
+	cursor: pointer;
+	cursor: hand;
+	padding: 0;
+}
+
+.gwt-DisclosurePanel .content a {
+}
+
+.gwt-DisclosurePanel .header table {
+	border-spacing: 0px;
+}
+
+.gwt-DisclosurePanel .content {
+	/*border-left: 3px solid #e7e7e7;*/
+	/*padding: 4px 0px 4px 8px;*/
+	padding: 0px 0px 4px 8px;
+	margin-left: 6px;
+	width: 100%;
+	border-spacing: 0px;
+}
+
+.gwt-DisclosurePanel .content tbody {
+	font-size: 11px;
+	line-height: 20px !important;
+}
+
+.sel .gwt-DisclosurePanel {
+	border-left: 5px solid #4D90FE;
+}
+
+.sel .header {
+	color: #4D90FE !important;
+	padding-left: 39px !important;
+}
+
+/* datebox and datepicker stuff */
+
+.gwt-DateBox {
+  padding: 5px 4px;
+  border: 1px solid #ccc;
+  border-top: 1px solid #999;
+  font-size: 100%;
+}
+.gwt-DateBox input {
+  width: 8em;
+}
+.dateBoxFormatError {
+  background: #ffcccc;
+}
+.dateBoxPopup {
+	z-index: 1002;	/* make it show above dialog glass */
+}
+
+.gwt-DatePicker {
+  border: 1px solid #ccc;
+  border-top:1px solid #999;
+  cursor: default;
+}
+.gwt-DatePicker td,
+.datePickerMonthSelector td:focus {
+  outline: none;
+}
+.datePickerDays {
+  width: 100%;
+  background: white;
+}
+.datePickerDay,
+.datePickerWeekdayLabel,
+.datePickerWeekendLabel {
+  font-size: 85%;
+  text-align: center;
+  padding: 4px;
+  outline: none;
+  font-weight:bold;
+  color:#333;
+  border-right: 1px solid #EDEDED;
+  border-bottom: 1px solid #EDEDED;
+}
+.datePickerWeekdayLabel,
+.datePickerWeekendLabel {
+  background: #fff;
+  padding: 0px 4px 2px;
+  cursor: default;
+  color:#666;
+  font-size:70%;
+  font-weight:normal;
+}
+.datePickerDay {
+  padding: 4px 7px;
+  cursor: hand;
+  cursor: pointer;
+}
+.datePickerDayIsWeekend {
+  background: #f7f7f7;
+}
+.datePickerDayIsFiller {
+  color: #999;
+  font-weight:normal;
+}
+.datePickerDayIsValue {
+  background: #d7dfe8;
+}
+.datePickerDayIsDisabled {
+  color: #AAAAAA;
+  font-style: italic;
+}
+.datePickerDayIsHighlighted {
+  background: #F0E68C;
+}
+.datePickerDayIsValueAndHighlighted {
+  background: #d7dfe8;
+}
+.datePickerDayIsToday {
+  padding: 3px;
+  color: #fff;
+  background: url(../images/hborder.png) repeat-x 0px -2607px;
+}
+
+.datePickerMonthSelector {
+  width: 100%;
+  padding: 1px 0 5px 0;
+  background: #fff;
+}
+td.datePickerMonth {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 100%;
+  font-weight: bold;
+  color: #333;
+}
+.datePickerPreviousButton,
+.datePickerNextButton {
+  font-size: 120%;
+  line-height: 1em;
+  color: #3a6aad;
+  cursor: hand;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0px 4px;
+  outline: none;
+}
+
+/* center zk loading popup */
+.z-loading {
+	top: 50% !important;
+	left: 45% !important;
+	align: center;
+	vertical-align: middle;
+}
+
+/* custom search dialog stuff */
+.gwt-TextBox, .gwt-ListBox {
+  padding: 5px 4px;
+  border: 1px solid #ccc;
+  border-top: 1px solid #999;
+  font-size: 100%;
+}
+
+.gwt-Label {
+	font-size: 100%;
+	font-weight: bold;
+	margin: 10px 0 10px 0;
+}
+

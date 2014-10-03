@@ -1,0 +1,219 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+        <div class="module" id="welcome">
+            <p style="font-size: 21px; font-weight: 600; margin: 16px 10px 0 10px">Welcome to Cloudscraper!</p>
+            <p style="font-size: 13px; margin: 0 0 20px 10px">We've assembled some links to get you started:</p>
+            <div style="margin: 0px 30px;">
+                <table style="margin: 10px auto 20px auto; width: 90%">
+                    <thead>
+                        <tr>
+                        <th style="width: 34%"><span style="font-size: 14px; font-weight: bold">Get Started</span></th>
+                        <th style="width: 33%"><span style="font-size: 14px; font-weight: bold">Next Steps</span></th>
+                        <th style="width: 33%"><span style="font-size: 14px; font-weight: bold">More Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button title="Customize" type="button" name="_customize">
+                                    <span class="text">Customize</span>
+                                </button>
+                            </td>
+                            <td> 
+                                <ul style="margin: 0; padding: 0">
+                                    <li style="list-style-type: none"><a href="/adminpanel/locals/directory/add/">Add a new local folder</a></li>
+                                    <li style="list-style-type: none"><a href="/adminpanel/django_mailbox/mailbox/add/">Add a new mailbox</a></li>
+                                    <li style="list-style-type: none"><a href="/adminpanel/websites/website/add/">Add a new website</a></li>
+                                    <li style="list-style-type: none"><a href="/search" target="_blank">View search page</a></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul style="margin: 0; padding: 0">
+                                    <li style="list-style-type: none">Manage <a href="/adminpanel/auth/user/" style="display: inline; padding: 0">users</a> and <a href="/adminpanel/cores/ranking/" style="display: inline; padding: 0">rankings</a></li>
+                                    <li style="list-style-type: none"><a href="/adminpanel/cores/contentdescriptor/">Manage content descriptors</a></li>
+                                    <li style="list-style-type: none"><a href="/adminpanel/cores/schedule/">Manage schedules</a></li>
+                                    <li style="list-style-type: none"><a href="/adminpanel/help">Learn more about getting started</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="module">
+        <table>
+        <caption>
+            <span class="section" title="Current tasks">
+                Current tasks
+            </span>
+        </caption>
+        {% if task_list %}
+            {% for task in task_list %} 
+                <tr>
+                
+                    <!--<th scope="row"><a href="#">Indexing dropbox account 'bratislav1983@gmail.com'</a></th>-->
+                    <th scope="row"><a href="#">{{ task.name }}</a></th>
+                
+                    
+
+               
+                    <td><a href="#" class="addlink">{% trans 'Stop' %}</a></td>
+                
+
+                
+                    <td><a href="#" class="changelink">{% trans 'Details' %}</a></td>
+                
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                
+                    <!--<th scope="row"><a href="#">Indexing dropbox account 'bratislav1983@gmail.com'</a></th>-->
+                    <th scope="row">No current tasks</th>
+            </tr>
+        {% endif %} 
+        </table>
+        </div>
+        
+        
+        
+        
+        <div class="module">
+            <table>
+                <caption>
+                    <span class="section" title="Right now">
+                        At a glance
+                    </span>
+                </caption>
+                <tr>
+                    <td>
+                    <table style="">
+                    <thead>
+                        <tr>
+                            <th style="width: 34%"><span style="font-size: 14px; font-weight: bold">Locations</span></th>
+                            <th style="width: 33%"><span style="font-size: 14px; font-weight: bold">Content</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{ dir_cnt }} Local dirs
+                            </td>
+                            <td>
+                                {{ file_cnt }} Files
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ mailbox_cnt }} Mailboxes
+                            </td>
+                            <td>
+                                {{ email_cnt }} Emails
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ website_cnt }} Websites
+                            </td>
+                            <td>
+                                {{ webpage_cnt }} Web pages
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Storage space</p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><p>{{ index_size }} Current index size</p></td>
+                                    <td><p>{{ total_docs }} Documents in total</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="module">
+            <table>
+                <caption>
+                    <span class="section" title="Administration">
+                        Administration
+                    </span>
+                </caption>
+                <tr>
+                    <td>
+                        <a href="/adminpanel/auth/user/">
+                        <img src="/static/system-users.png" style="display: block"/>
+                        Users
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/adminpanel/auth/group/">
+                        <img src="/static/resource-group.png" style="display: block"/>
+                        Groups
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#">
+                        <img src="/static/preferences-system.png" style="display: block"/>
+                        Settings
+                        </a>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>{% trans 'Recent Actions' %}</h2>
+        <h3>{% trans 'My Actions' %}</h3>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+            <p>{% trans 'None available' %}</p>
+            {% else %}
+            <ul class="actionlist">
+            {% for entry in admin_log %}
+            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                {% if entry.is_deletion or not entry.get_admin_url %}
+                    {{ entry.object_repr }}
+                {% else %}
+                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                {% endif %}
+                <br/>
+                {% if entry.content_type %}
+                    <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
+                {% else %}
+                    <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}
