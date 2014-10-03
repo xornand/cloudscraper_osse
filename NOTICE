@@ -1,0 +1,5 @@
+This product includes the following software libraries : 
+
+Apache Tika: http://tika.apache.org/, licensed under Apache License, Version 2.0
+luceneplusplus: https://github.com/luceneplusplus/LucenePlusPlus, dual-licensed under Apache License, Version 2.0 and LGPL
+djangorestframework: http://www.django-rest-framework.org/, copyrighted by Tom Christie

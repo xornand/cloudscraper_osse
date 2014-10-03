@@ -1,0 +1,1 @@
+install64_ss.cmd c:\Users\Vojislav\Django\cloudscraper\apps\cores\lib\windows\64 c:\Users\Vojislav\Django\cloudscraper\apps\cores cores default suggs.dat

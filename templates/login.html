@@ -1,0 +1,63 @@
+<?page title="Cloudscraper Login" contentType="text/html;charset=UTF-8"?>
+<?link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" /> ?>
+<html xmlns="native" xmlns:zul="zul">
+<head>
+	<meta charset="UTF-8" />
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <script type="text/javascript" src="login/login.nocache.js"></script>
+</head>
+<body>
+
+	<noscript>
+		<div
+			style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this
+			application to display correctly.</div>
+	</noscript>
+
+	<zul:div id="main" apply="ca.cloudscraper.zk.viewctrl.LoginViewCtrl" sclass="main">
+		<div id="loginw">
+			<h2>
+				Login<strong></strong>
+			</h2>
+			<div id="loginForm">
+				<!-- You need to have button with type = submit but login will stop working in Chrome -->
+				<!-- Firefox will remember password, so there must be a cross-browser trick -->
+				<form name="login_form" method="post">
+					<div id="userw">
+						<label for="username">
+							<strong>Username</strong>
+						</label>
+						<zul:textbox id="username" name="username" sclass="username" focus="true" />
+					</div>
+					<div id="passw">
+						<label for="password">
+							<strong>Password</strong>
+						</label>
+						<zul:textbox id="password" name="password" type="password" sclass="password" />
+					</div>
+					<zul:div id="badLogin" visible="false">
+						<zul:label id="msgLbl" style="color: red" />
+					</zul:div>
+					<zul:button id="loginBtn" sclass="btn loginBtn" label="Log in" />
+					<label id="r">
+						<zul:checkbox id="sli" />
+						<strong>Stay logged in</strong>
+					</label>
+				</form>
+			</div>
+			<ul>
+				<li>
+					<a href="mailto:bratislav1983@gmail.com">Can't access your account?</a>
+				</li>
+				<li>
+					<a href="mailto:bratislav1983@gmail.com">Create an account</a>
+				</li>
+			</ul>
+		</div>
+	</zul:div>
+	
+</body>
+</html>
