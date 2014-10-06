@@ -14,9 +14,9 @@
 # Do NOT "set -e"
 
 # Set variables
-CS_ROOT=/var/www/cloudscraper
-START_SCRIPT="$CS_ROOT"/apps/cores/lib/linux/64/start.sh
-STOP_SCRIPT="$CS_ROOT"/apps/cores/lib/linux/64/stop.sh
+CS_ROOT=/var/www/cloudscraper_osse
+START_SCRIPT="$CS_ROOT"/apps/cores/bin/linux/64/start.sh
+STOP_SCRIPT="$CS_ROOT"/apps/cores/bin/linux/64/stop.sh
 PID="$CS_ROOT"/apps/cores/jsvc.pid
 USER=brat
 
