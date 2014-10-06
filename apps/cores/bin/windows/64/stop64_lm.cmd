@@ -1,1 +1,0 @@
-prunsrv64.exe //SS//CloudscraperLicenseService
