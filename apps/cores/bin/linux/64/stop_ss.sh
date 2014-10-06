@@ -10,7 +10,7 @@ CLASSPATH=\
 $CLASSPATH:\
 $DAEMON_HOME/suggest-server-1.0.jar
 echo "Stopping Cloudscraper Suggest Service..."
-$DAEMON_HOME/jsvc64_ubuntu \
+$DAEMON_HOME/bin/linux/64/jsvc64_ubuntu \
 -jvm server \
 -home $JAVA_HOME \
 -user $JSVC_USER \

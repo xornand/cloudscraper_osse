@@ -10,7 +10,7 @@ CLASSPATH=\
 $CLASSPATH:\
 $DAEMON_HOME/tika-server-1.5-SNAPSHOT-PATCHED.jar
 echo "Stopping Cloudscraper Service..."
-$DAEMON_HOME/jsvc32_ubuntu \
+$DAEMON_HOME/bin/linux/32/jsvc32_ubuntu \
 -jvm server \
 -home $JAVA_HOME \
 -user $JSVC_USER \
