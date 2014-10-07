@@ -35,9 +35,13 @@ class DirectoryAdmin(admin.ModelAdmin):
         (capfirst(_('permissions')), {
             'fields': ('users',),
             'classes': ('collapse collapse-opened',),
-        }), 
+        }),
+        (capfirst(_('filters')), {
+            'fields': ('filters',),
+            'classes': ('collapse collapse-opened',),
+        }),        
     )
-    filter_horizontal = ('users',)
+    filter_horizontal = ('users','filters',)
     
     def crawl(self, request, queryset):
     

@@ -81,7 +81,7 @@ def startupEngine():
     lib.closeFacade.argtypes = [c_void_p]
     lib.closeFacade.restype = c_void_p
 
-    lib.indexFacade.argtypes = [c_void_p, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p, POINTER(c_int), c_int]
+    lib.indexFacade.argtypes = [c_void_p, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p, POINTER(c_int), c_int, c_wchar_p]
     lib.indexFacade.restype = c_void_p
 
     lib.searchFacade.argtypes = [c_void_p, c_wchar_p, c_wchar_p, c_int, c_int, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p, c_int, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p, c_wchar_p]
@@ -122,8 +122,8 @@ def startupEngine():
         def delete(self):
             return lib.deleteFacade(self.obj)
 
-        def index(self, hostname, port, path, facet, uidsArr, uidsSize):
-            return lib.indexFacade(self.obj, hostname, port, path, facet, uidsArr, uidsSize)
+        def index(self, hostname, port, path, facet, uidsArr, uidsSize, pathPrefix):
+            return lib.indexFacade(self.obj, hostname, port, path, facet, uidsArr, uidsSize, pathPrefix)
 
         def search(self, q, start, hitsPerPage, sort, order, mode, facet, uid, df, dfFrom, dfTo, lf, lfl, ff, ffct):
             dst = create_unicode_buffer(10000) # initial capacity 10000

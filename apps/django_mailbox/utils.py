@@ -93,12 +93,14 @@ def crawl_global(curmodel):
             print "uidsArray[%d] = %d" % (i, curmodel.users.all()[i].id)
     
     #cores.f1.index(pres.hostname, unicode(port), os.path.join(settings.BASE_DIR, 'apps', 'cores', 'incoming', 'django_mailbox', curmodel.name), 'email', 1)
-    cores.f1.index(pres.hostname, unicode(port), os.path.join(settings.BASE_DIR, 'apps', 'cores', 'incoming', 'django_mailbox', curmodel.name), 'email', uidsArray, len(uidsArray))
+    # todo: check last param
+    cores.f1.index(pres.hostname, unicode(port), os.path.join(settings.BASE_DIR, 'apps', 'cores', 'incoming', 'django_mailbox', curmodel.name), 'email', uidsArray, len(uidsArray), curmodel.name)
     
     # index attachments
     logger.info('Indexing attachments')
     #cores.f1.index(pres.hostname, unicode(port), os.path.join(settings.BASE_DIR, 'apps', 'cores', 'incoming', 'django_mailbox', curmodel.name, 'attachments'), 'file', 1)
-    cores.f1.index(pres.hostname, unicode(port), os.path.join(settings.BASE_DIR, 'apps', 'cores', 'incoming', 'django_mailbox', curmodel.name, 'attachments'), 'file', uidsArray, len(uidsArray))
+    # todo: check last param
+    cores.f1.index(pres.hostname, unicode(port), os.path.join(settings.BASE_DIR, 'apps', 'cores', 'incoming', 'django_mailbox', curmodel.name, 'attachments'), 'file', uidsArray, len(uidsArray), curmodel.name)
     
     cores.f1.commit()
     

@@ -26,21 +26,43 @@ def crawl_global(curmodel):
     
     
     # check to see if we need to do this recursively
-    ignore = None
-    if curmodel.recursive:
-        ignore = lambda : [name for name in os.listdir(curmodel.start_dir) if os.path.isdir(os.path.join(curmodel.start_dir, name))]
-        
+    #ignore = None
+    #if curmodel.recursive:
+        #ignore = lambda : [name for name in os.listdir(curmodel.start_dir) if os.path.isdir(os.path.join(curmodel.start_dir, name))]
+    
+    ext_to_filter = ['.'+desc.suffix for filter in curmodel.filters.all() for content in filter.contents.all() for desc in content.descriptors.all()]
+    
+    # this will get called when copytree starts processing dir (or subdir)
+    # path is the current dir and names are contents (both dirs and files) in that dir
     def custom_ignore_patterns(dir):
         def _ignore_patterns(path, names):
-            ignored_names = [name for name in os.listdir(dir) if os.path.isdir(os.path.join(dir, name))]
+            
+            #print 'filters: %s' % ext_to_filter
+            #print 'path %s' % path
+            #print 'names %s' % names
+            
+            logger.info("Copying %s..." % path)
+            
+            if not curmodel.recursive:
+                # filter both subdirs and filenames that match filters
+                ignored_names = [name for name in names if os.path.isdir(os.path.join(path, name))]
+                ignored_names = [name for name in names if not name.endswith(tuple(ext_to_filter))]
+            else:
+                # filter only filenames that match filters
+                #print 'listdir %s' % os.listdir(dir)
+                ignored_names = [name for name in names if not os.path.isdir(os.path.join(path, name)) and not name.endswith(tuple(ext_to_filter))]
+            #print 'Ignored %s' % set(ignored_names)
             return set(ignored_names)
         return _ignore_patterns
     
     #copytree(curmodel.start_dir, dst, ignore=ignore_patterns('*.pyc', 'tmp*'))
-    if curmodel.recursive:
-        copytree(curmodel.start_dir, dst, ignore=None)
-    else:
-        copytree(curmodel.start_dir, dst, ignore=custom_ignore_patterns(curmodel.start_dir))
+    #if curmodel.recursive:
+        #copytree(curmodel.start_dir, dst, ignore=None)
+    #else:
+        ## ignore (filter) subdirs
+        #copytree(curmodel.start_dir, dst, ignore=custom_ignore_patterns(curmodel.start_dir))
+    
+    copytree(curmodel.start_dir, dst, ignore=custom_ignore_patterns(curmodel.start_dir))
     
     logger.info("Files copied into incoming dir %s successfully" % dst)
     
@@ -67,7 +89,8 @@ def crawl_global(curmodel):
             uidsArray[i] = curmodel.users.all()[i].id
             print "uidsArray[%d] = %d" % (i, curmodel.users.all()[i].id)
     
-    cores.f1.index("127.0.0.1", "8000", curmodel.start_dir, "file", uidsArray, len(uidsArray))
+    #cores.f1.index("127.0.0.1", "8000", curmodel.start_dir, "file", uidsArray, len(uidsArray))
+    cores.f1.index("127.0.0.1", "8000", dst, "file", uidsArray, len(uidsArray), curmodel.start_dir)
     
     cores.f1.commit()
     

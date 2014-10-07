@@ -105,7 +105,18 @@ class Content(models.Model):
     title = models.CharField(_('title'), max_length=255)
     description = models.TextField(_('description'), blank=True)
     type = models.CharField(_('type'), max_length=15, choices=CONTENT_TYPE_CHOICES, default='File')
-    descriptor = models.ForeignKey(ContentDescriptor)
+    # todo: should it be one-to-many?
+    # todo: contentdescriptor can only be part of one content?
+    descriptors = models.ManyToManyField(
+        ContentDescriptor,
+        verbose_name=_('descriptors'),
+        blank=True,
+        help_text=_(
+            'Descriptors for this content'
+        ),
+        related_name="descriptors_set",
+        related_query_name="descriptors"
+    )
     # add for which user/users
 
     def __str__(self):
@@ -128,6 +139,20 @@ class Filter(models.Model):
     title = models.CharField(_('title'), max_length=255)
     description = models.TextField(_('description'), blank=True)
     type = models.CharField(_('type'), max_length=15, choices=FILTER_TYPE_CHOICES, default='Descriptor')
+    contents = models.ManyToManyField(
+        Content,
+        verbose_name=_('contents'),
+        blank=True,
+        help_text=_(
+            'Contents to filter'
+        ),
+        related_name="contents_set",
+        related_query_name="contents"
+    )
+    size = models.IntegerField(_('size'), null=True)
+    date_created_from = models.DateTimeField(_('date_created_from'), null=True)
+    date_created_to = models.DateTimeField(_('date_created_to'), null=True)
+    # todo
 
     def __str__(self):
         return self.title

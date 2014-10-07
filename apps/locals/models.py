@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _ 
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import User
-from cores.models import Schedule
+from cores.models import Schedule, Filter
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 import cores
@@ -34,7 +34,17 @@ class Directory(models.Model):
         ),
         related_name="user_set",
         related_query_name="user"
-    ) 
+    )
+    filters = models.ManyToManyField(
+        Filter,
+        verbose_name=_('filters'),
+        blank=True,
+        help_text=_(
+            'Filters to apply for this directory.'
+        ),
+        related_name="dir_filter_set",
+        related_query_name="dir_filter"
+    )
     
     def __str__(self):
         return self.title
@@ -86,10 +96,10 @@ def post_save_callback(sender, instance, *args, **kwargs):
     logger.info("Directory added/updated!")
     
     # test - get modeladmin instance
-    from django.contrib import admin
-    print admin.site._registry
-    if sender in admin.site._registry:
-        print admin.site._registry[sender]
+    #from django.contrib import admin
+    #print admin.site._registry
+    #if sender in admin.site._registry:
+        #print admin.site._registry[sender]
     
 
 @receiver(post_delete, sender=Directory)

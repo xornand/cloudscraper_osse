@@ -1184,17 +1184,4 @@
         <field type="CharField" name="suffix">jar</field>
         <field type="CharField" name="magic_number"/>
     </object>
-    <object pk="1" model="locals.directory">
-        <field type="CharField" name="title">tests3</field>
-        <field type="TextField" name="description"/>
-        <field type="CharField" name="start_dir">c:\Users\Vojislav\Downloads\tests3</field>
-        <field type="BooleanField" name="recursive">False</field>
-        <field to="auth.user" name="owner" rel="ManyToOneRel">1</field>
-        <field type="DateTimeField" name="last_crawled_date">
-            <None/>
-        </field>
-        <field type="CharField" name="status">ready</field>
-        <field to="cores.schedule" name="schedule" rel="ManyToOneRel">1</field>
-        <field to="auth.user" name="users" rel="ManyToManyRel"/>
-    </object>
 </django-objects>

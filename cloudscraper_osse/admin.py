@@ -9,8 +9,8 @@ from django.contrib.sites.admin import SiteAdmin
 #from websites.models import Website
 #from websites.admin import WebsiteAdmin
 
-from cores.models import Core, Schedule, Ranking, Content, ContentDescriptor
-from cores.admin import CoreAdmin, ScheduleAdmin, RankingAdmin, ContentAdmin, ContentDescriptorAdmin
+from cores.models import Core, Schedule, Ranking, Content, ContentDescriptor, Filter
+from cores.admin import CoreAdmin, ScheduleAdmin, RankingAdmin, ContentAdmin, ContentDescriptorAdmin, FilterAdmin
 
 from .forms import SuperAdminAuthenticationForm, UserAuthenticationForm
 
@@ -310,6 +310,7 @@ admin.register(Core, CoreAdmin)
 admin.register(Schedule, ScheduleAdmin)
 admin.register(Content, ContentAdmin)
 admin.register(ContentDescriptor, ContentDescriptorAdmin)
+admin.register(Filter, FilterAdmin)
 
 admin.register(Mailbox, MailboxAdmin)
 admin.register(Message, MessageAdmin)

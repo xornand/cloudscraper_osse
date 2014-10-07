@@ -54,7 +54,12 @@ class ContentAdmin(admin.ModelAdmin):
             'fields': ('description',),
             'classes': ('collapse collapse-opened',),
         }),
+        (capfirst(_('descriptors')), {
+            'fields': ('descriptors',),
+            'classes': ('collapse collapse-opened',),
+        }),
     )
+    filter_horizontal = ('descriptors',)
 
 class ContentDescriptorAdmin(admin.ModelAdmin):
     list_display = ('title','suffix','mime_type')
@@ -84,4 +89,10 @@ class FilterAdmin(admin.ModelAdmin):
             'fields': ('description',),
             'classes': ('collapse',),
         }),
+        (capfirst(_('contents')), {
+            'fields': ('contents',),
+            'classes': ('collapse collapse-opened',),
+        }),
     )
+    filter_horizontal = ('contents',)
+
